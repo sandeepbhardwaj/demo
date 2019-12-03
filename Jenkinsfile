@@ -22,7 +22,7 @@ pipeline {
     stage('Docker Run') {
       agent any
       steps {
-        sh 'docker run -d 9090:8080 sandeepbhardwaj/spring-boot-jenkins:latest'
+        sh 'docker run -d -p  9090:8080 sandeepbhardwaj/spring-boot-jenkins:latest'
       }
     }
   }
