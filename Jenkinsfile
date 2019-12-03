@@ -3,14 +3,10 @@
 pipeline {
   agent none
   stages {
-    stage('Maven Install') {
-      agent {
-        docker {
-          image 'maven:3.3.3'
-        }
-      }
+    stage('Build Artifact') {
+      agent any
       steps {
-        sh 'mvn clean package'
+        sh './mvnw clean package'
       }
     }
     stage('Docker Build') {
