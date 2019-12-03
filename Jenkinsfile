@@ -20,6 +20,7 @@ pipeline {
     stage('Build Artifact') {
       agent any
       steps {
+        sh 'echo hello from Build Artifact'
         //sh './mvnw clean package'
       }
     }
