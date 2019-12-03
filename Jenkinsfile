@@ -6,7 +6,9 @@ pipeline {
   options{
     buildDiscarder(logRotator(numToKeepStr :'5', artifactNumToKeepStr: '5'))
   }
-  stage('Maven Install') {
+  
+  stages {
+    stage('Maven Install') {
       agent {
         docker {
           image 'maven:3.3.3'
@@ -15,8 +17,7 @@ pipeline {
       steps {
         sh 'mvn clean package'
       }
-  }
-  stages {
+    }
     stage('Build Artifact') {
       agent any
       steps {
@@ -31,4 +32,5 @@ pipeline {
       }
     }
   }
+  
 }
