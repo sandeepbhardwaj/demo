@@ -8,7 +8,7 @@ pipeline {
   }
   
   stages {
-    stage('Maven Install') {
+    /*stage('Maven Install') {
       agent {
         docker {
           image 'maven:3.3.3'
@@ -17,11 +17,12 @@ pipeline {
       steps {
         sh 'mvn clean package'
       }
-    }
+    }*/
     stage('Build Artifact') {
       agent any
       steps {
         sh 'echo hello from Build Artifact'
+        sh 'mvn clean package'
         //sh './mvnw clean package'
       }
     }
