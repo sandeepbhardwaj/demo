@@ -14,6 +14,7 @@ pipeline {
           image 'maven:3.3.3'
         }
       }*/
+      agent any
       steps {
         sh 'mvn clean package'
       }
