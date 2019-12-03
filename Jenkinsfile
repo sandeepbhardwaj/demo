@@ -15,11 +15,6 @@ pipeline {
         sh 'docker build -t sandeepbhardwaj/spring-boot-jenkins:latest .'
       }
     }
-    stage('Docker Run') {
-      agent any
-      steps {
-        sh 'docker run -d -p  9090:8080 sandeepbhardwaj/spring-boot-jenkins:latest'
-      }
-    }
+    
   }
 }
